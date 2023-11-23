@@ -1,6 +1,8 @@
 import { Box, Modal, Typography } from "@mui/material";
 import { useState } from "react";
 import { GoPerson } from "react-icons/go";
+import { Link } from "react-router-dom";
+import { RiRecycleFill } from "react-icons/ri";
 
 const Nav = () => {
 
@@ -33,10 +35,13 @@ const Nav = () => {
 
     if (localStorage.getItem("jwt")) {
         return (
-            <div className="flex flex-col md:flex-row md:justify-between items-center gap-4">
-                <div className="font-bold text-xl text-slate-500">
-                    전국 재활용센터
-                </div>
+            <div className="flex flex-col sm:flex-row sm:justify-between items-center">
+                <Link to="/">
+                    <div className="flex flex-col sm:flex-row justify-center items-center gap-2 font-bold ">
+                        <RiRecycleFill className="text-2xl mt-1 text-green-500 hover:text-green-700" />
+                        <div className="text-xl text-slate-500 hover:text-blue-500">전국 재활용센터</div>
+                    </div>
+                </Link>
                 <div>
                     <div className="flex justify-center items-center gap-2" onClick={openModal}>
                         <GoPerson className="mt-1 text-4xl text-slate-500 hover:text-white hover:bg-blue-500 rounded-lg p-1" />

@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import KakaoMapMain from './KakaoMapMain';
 
 const Home = () => {
 
     const search = useRef();
+    const [data, setData] = useState();
 
     useEffect(() => {
 
@@ -14,25 +15,15 @@ const Home = () => {
     const handleClick = async (e) => {
 
         e.preventDefault();
-
-        await fetch(`${process.env.REACT_APP_SERVER_URL}api/test/${search.current.value}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': localStorage.getItem("jwt")
-            },
-        })
-            .then(resp => resp.json())
-            .then(data => console.log(data))
-            .catch(e => console.log(e));
+        window.location.href = `/test1/${search.current.value}`;
     }
 
     return (
         <div>
             <div className="flex flex-col">
                 <div>
-                    <form className="flex flex-col md:flex-row justify-center items-center">
-                        <div className="w-auto md:w-[15rem] mx-2">
+                    <form className="flex flex-col sm:flex-row justify-center items-center">
+                        <div className="w-auto sm:w-[15rem] mx-2">
                             <input ref={search} type="text" id="search" name="search" placeholder="장소를 검색하세요." />
                         </div>
                         <div className="mx-2 mb-3.5">

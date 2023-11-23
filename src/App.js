@@ -18,14 +18,14 @@ function App() {
     <RecoilRoot>
       <main className='container mx-auto'>
         <BrowserRouter>
-          <article>
+          <article className="">
             <Nav />
           </article>
-          <article className="h-[42.5rem] sm:h-[39.25rem] md:h-[34.25rem]">
+          <article className="h-[30rem] sm:h-[41.75rem] md:h-[33.625rem]">
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/" element={<AuthCheck><Home /></AuthCheck>} />
-              <Route path="/test1" element={<AuthCheck><Test1 /></AuthCheck>} />
+              <Route path="/test1/:area" element={<AuthCheck><Test1 /></AuthCheck>} />
               <Route path="/test2" element={<AuthCheck><Test2 /></AuthCheck>} />
               <Route path="*" element={<AuthCheck><NotFound /></AuthCheck>} />
             </Routes>
